@@ -32,7 +32,7 @@ $stmt->execute() or die ('Error excecuting');
         </div>
     <div id="con">
 <form method="post" action="comment.php" enctype="multipart/form-data">
-<label><br><textarea name="content" rows="10" cols="120"></textarea></label><br><br>
+<label><br><textarea name="content" rows="8" cols="80" maxlength="200"></textarea></label><br><br>
 <input type="submit" name="submit_comment" value="Send"/>
 <input type="hidden" name="image" value="<?php echo $img;?>"/>
 </form>
