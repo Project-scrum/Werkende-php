@@ -1,6 +1,6 @@
 <?php
     $img = $_GET['img'];
-  
+
 
     echo '<img style="width:800px" src="' . $img . '" /><br>';
 ?>
@@ -20,7 +20,7 @@
 
 $mysqli = new mysqli('localhost', 'root', 'root', 'the-wall') or die ('Error connecting');
 $query = "SELECT content FROM comment WHERE link = '$img'";
-$stmt = $mysqli->prepare($query) or die ('Error preparing');
+$stmt = $mysqli->prepare($query) or die ('3');
 $stmt->bind_result($content) or die ('binding result');
 $stmt->execute() or die ('Error excecuting');
 
@@ -30,6 +30,16 @@ $stmt->execute() or die ('Error excecuting');
         }
         ?>
         </div>
+    
+    <?php
+
+$query6 = "SELECT _like FROM likes WHERE post_img = '$img'";
+$stmt2 = $mysqli->prepare($query6) or die ('4');
+$stmt2->bind_result($likes) or die ('binding result');
+$stmt2->execute() or die ('Error excecuting');
+
+
+    ?>
     <div id="con">
 <form method="post" action="comment.php" enctype="multipart/form-data">
 <label><br><textarea name="content" rows="8" cols="80" maxlength="200"></textarea></label><br><br>
@@ -38,5 +48,13 @@ $stmt->execute() or die ('Error excecuting');
 </form>
 </div>
 
+<!--<h3>
+
+  likes
+</h3>
+<form method="post" action="post.php?img=images/157986291554678558ccbf6c81bad55f94b33eb13531fa40d5.png">
+<div class='stat_frame'><input type="submit" name="like" value="like"/></div>
+</form>
+!-->
 </body>
 </html>

@@ -14,6 +14,8 @@ move_uploaded_file($temp_location, $target_location);
 $title = $_POST['title'];
 $description = $_POST['description'];
 
+$like = 0;
+
 // array_push($images, $image);
 
 $mysqli = new mysqli('localhost', 'root', 'root', 'the-wall') or die ('Error connecting');

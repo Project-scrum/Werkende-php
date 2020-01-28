@@ -52,7 +52,6 @@ $stmt->execute() or die ('Error excecuting');
                 <img class='pic_frame' style="width:200px" src="<?php echo $location ?>" onclick="location.href='post.php?img=<?php echo $location; ?>'">
                 <div class='title_frame'><?php echo $title?>
                 <div class='script_frame'><?php echo $description?></div></div>
-                <div class='stat_frame'><button type="button">Vote!</button></div>
             </div>
     <?php   
         }
